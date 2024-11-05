@@ -20,5 +20,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
-          local-dir: "/www/dikalaapanel"  # Directory to upload from
-          remote-dir: "/www/wwwroot/103.181.143.105"  # Directory on your server
+          local-dir: "/www/dikalaapanel/"  # Directory to upload from (must end with /)
+          server-dir: "/www/wwwroot/103.181.143.105/"  # Directory on your server (use server-dir)
