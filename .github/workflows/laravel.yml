@@ -1,21 +1,24 @@
-on: 
+name: 🚀 Deploy website on push
+
+on:
   push:
     branches:
       - main
-name: 🚀 Deploy website on push
 
 jobs:
   web-deploy:
     name: 🎉 Deploy website
     runs-on: ubuntu-latest
+
     steps:
-    # Checkout the repository
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
-    # sync files via FTP
-    - name: 📂 Sync files via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USER }}
-        password: ${{ secrets.FTP_PASS }}
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 📂 Sync files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: "/www/dikalaapanel"  # Directory to upload from
+          remote-dir: "/www/wwwroot/103.181.143.105"  # Directory on your server
